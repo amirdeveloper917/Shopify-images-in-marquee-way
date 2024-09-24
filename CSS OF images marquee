@@ -1,0 +1,29 @@
+CSS OF images marquee
+/* Bento Grid Styling */
+.bento-grid-section {
+  width: 100%;
+  overflow: hidden; /* Ensures marquee does not overflow */
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: nowrap; /* Keep items in a single row for marquee */
+  animation: marquee 10s linear infinite; /* Adjust speed as necessary */
+}
+
+.grid-item {
+  flex: 0 0 20%; /* 5 items per row */
+  box-sizing: border-box;
+  padding: 10px; /* Adjust spacing as needed */
+}
+
+.grid-item img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Keeps aspect ratio */
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}

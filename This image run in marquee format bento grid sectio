@@ -1,0 +1,63 @@
+This image run in marquee format bento grid section
+<section class="bento-grid-section">
+  <h2>{{ section.settings.grid_title }}</h2>
+  <div class="bento-grid {% if section.settings.enable_marquee %}marquee{% endif %}">
+    {% if section.blocks.size > 0 %}
+      <div class="grid-container">
+        {% for block in section.blocks %}
+          <div class="grid-item">
+            <img src="{{ shop.url }}/cdn/shop/{{ block.settings.image | image_url: 'large' }}" alt="{{ block.settings.alt_text }}" width="612" height="792">
+            <p>{{ block.settings.alt_text }}</p> <!-- Debug output -->
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No images have been added yet.</p> <!-- Debug output -->
+    {% endif %}
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Bento Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "grid_title",
+      "label": "Grid Title",
+      "default": "Our Bento Grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_marquee",
+      "label": "Enable Marquee Effect",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bento Grid",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
