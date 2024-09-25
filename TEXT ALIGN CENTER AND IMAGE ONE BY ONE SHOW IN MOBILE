@@ -1,0 +1,34 @@
+Paste this css code into your base.css class bento grid section if you want to make image title in center
+/* Bento Grid Styling */
+.bento-grid-section {
+  width: 100%;
+  overflow: hidden; /* Ensures marquee does not overflow */
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: nowrap; /* Keep items in a single row for marquee */
+  animation: marquee 36s linear infinite; /* Adjust speed as necessary */
+}
+.grid-item {
+  flex: 0 0 20%; /* 5 items per row */
+  box-sizing: border-box;
+  padding: 10px; /* Adjust spacing as needed */
+  align-items: center;
+}
+.grid-item p {
+  margin-top: 10px; /* Adjust spacing between image and text */
+  font-size: 16px; /* Adjust font size */
+  text-align: center; /* Center text horizontally */
+}
+.grid-item img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Keeps aspect ratio */
+ 
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
