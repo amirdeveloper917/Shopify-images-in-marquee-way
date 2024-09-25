@@ -33,10 +33,10 @@ Paste this css code into your base.css class bento grid section if you want to m
   100% { transform: translateX(-100%); }
 }
 /* Responsive Styling */
-/* Show 7 grid item on screens smaller than 576px */
+/* Show 4 grid item on screens smaller than 576px */
 @media (max-width: 576px) and (max-width: 768px) {
   .grid-item {
-    flex: 0 0 20%; /* 7 item per row */
+    flex: 0 0 20%; /* 4 item per row */
   align-items: center;
      overflow: hidden;
   flex-wrap: nowrap;
@@ -50,4 +50,50 @@ Paste this css code into your base.css class bento grid section if you want to m
   font-size: 14px; /* Adjust font size */
   text-align: center; /* Center text horizontally */
 }
+}
+
+/* show 6 images on mobile devices */
+/* Responsive Styling */
+/* Show 7 grid item on screens smaller than 576px */
+@media (max-width: 576px) and (max-width: 768px) {
+  .grid-item {
+    flex: 0 0 10%; /* 7 item per row or ad 14% instead of 10%*/
+  align-items: center;
+     overflow: hidden;
+  }
+  .grid-container {
+    animation: marquee 40s linear infinite; /* Adjust scrolling speed */
+    width: 350%;
+  }
+  .grid-item p {
+  margin-top: 10px; /* Adjust spacing between image and text */
+  font-size: 14px; /* Adjust font size */
+  text-align: center; /* Center text horizontally */
+}
+}
+
+/* If you want to show custom width then use this media query */
+@media (max-width: 768px) {
+  .grid-container {
+    display: flex;
+    width: 612px;
+    flex-wrap: nowrap;
+  }
+  .grid-container::-webkit-scrollbar {
+    display: none; / Hides scrollbar on Chrome, Safari, and Opera /
+  }
+  .grid-item {
+    flex: 0 0 25%; / Larger size for better visibility /
+    box-sizing: border-box;
+    padding: 10px;
+    align-items: center;
+  }
+     .grid-item p {
+  margin-top: 10px; /* Adjust spacing between image and text */
+  font-size: 10px; /* Adjust font size */
+}
+  .grid-item img {
+    width: 100%; / Maintains image size based on grid item size /
+    height: auto; / Maintains aspect ratio */
+  }
 }
