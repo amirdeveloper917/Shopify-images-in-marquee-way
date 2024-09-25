@@ -32,3 +32,28 @@ Paste this css code into your base.css class bento grid section if you want to m
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
+/* Responsive Styling */
+/* Show 1 grid item on screens smaller than 576px */
+@media (max-width: 576px) and (max-width: 768px) {
+  .bento-grid-section {
+  width: 100%;
+  overflow: hidden; /* Ensures marquee does not overflow */
+}
+  .grid-item {
+    flex: 0 0 70%; /* 1 item per row */
+  align-items: center;
+  }
+   .grid-container {
+    animation: marquee 6s linear infinite; /* Slower scrolling to show all items */
+     display: flex;
+  flex-wrap: nowrap;
+  }
+  .grid-item p {
+  margin-top: 10px; /* Adjust spacing between image and text */
+  font-size: 14px; /* Adjust font size */
+  text-align: center; /* Center text horizontally */
+}
+.grid-item img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Keeps aspect ratio */ }
+}
